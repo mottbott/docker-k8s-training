@@ -1,22 +1,17 @@
 # Notes
 
 # How to prepare your Zuehlke Notebook
-#### Best 
-* Docker for Desktop
-* Login for Docker Registry
-* Binaries im system path: kubectl, docker-compose
-* Best case WSL for  Windows
+* Goal: Use the full potential of todays possibilities. 
+* Docker Desktop
+* Login for Docker Hub
+* Binaries im system path: kubectl (https://kubernetes.io/de/docs/tasks/tools/), docker-compose (https://docs.docker.com/compose/install/)
 * Git
+* Recommended: Windows-Subsystem für Linux (WSL) with Ubuntu 18 or 20
+* Todo: Provide a mini tutorial how to set it up
 
-#### Medium
-* Docker for Desktop
-* Login for Docker Registry
-* kubectl binary
-* Windows command prompt
-
-#### Super Basic
-https://labs.play-with-k8s.com/ => Login with GitHab or Docker Account
-
+## Fallback
+Option 1: https://labs.play-with-k8s.com/ => Login with GitHub or Docker Account required
+Option 2: self-hosted Linux VM 
 
 ## Procedure
 * Explain, Demo, hands-on (continue to do it.)

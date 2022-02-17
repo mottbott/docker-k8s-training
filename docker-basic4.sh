@@ -5,7 +5,7 @@
 # cgroups (abbreviated from control groups) is a Linux kernel feature that limits, accounts for, and isolates the resource usage of a collection of processes.
 
 
-#storage: Old-school mit -v und auf Bindmound hinweisen. https://docs.docker.com/storage/bind-mounts/
+#storage: Old-school mit -v (# explain volume with -v, https://docs.docker.com/storage/volumes/ ) mention Bindmount. https://docs.docker.com/storage/bind-mounts/
 # mention that nothing is persitent.
 #storage. rellay demostrate with interactive commands and so on. #mysql would be an example
 docker run -d --restart always -p 81:80 -m 64m --name a5 -v /home/adamm/test:/home nginx:latest
@@ -30,8 +30,6 @@ We will use the same steps for the second image docker pull httpd:latest and the
 
 #Now we can pull images from our registry-server as well. Use docker pull [server-addr/image-name] to pull the images that we pushed earlier.
 In our case we can use: docker pull localhost:5000/nginx
-
-
 
 # network: bridge, none and host
 # docker has by default one internal network and DNS (container name)

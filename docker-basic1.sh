@@ -1,6 +1,6 @@
 #!/bin/bash
 #Docker Part 1
-#Why Docker & use cases (local development, in a cluster, etc.), understanding
+#Why Docker, basic understanding and commands
 
 # get the runtime version 
 docker version
@@ -21,15 +21,11 @@ docker run -p 80:80  nginx
 # Name vs id
 # Name is used, even if the container is stopped
 # attach  vs. detach explain 
+# explain:  detach -d is short for --detach, which means you just run the container and then detach from it. Essentially, you run container in the background.
 docker run --name hallo_world -p 80:80 -d nginx
 curl localhost
 docker stop hallo_world
 docker rm hallo_world
-
-# explain:  detach -d is short for --detach, which means you just run the container and then detach from it. Essentially, you run container in the background.
-
-# immediately disappears container are meant to run a specific tasks or process. only lives as long the process is alive. 
- docker run ubuntu
 
 # -it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
 # -itd, it runs both the -it options and detaches you from the container. As a result, your container will still be running in the background even without any default app to run.
@@ -37,15 +33,17 @@ docker rm hallo_world
 docker run -it ubuntu
 docker run ubuntu cat /etc/*release*
 
+
 # explain restart: https://docs.docker.com/config/containers/start-containers-automatically/
 
-# explain volume with -v, https://docs.docker.com/storage/volumes/ 
-
 # Show some examples how to run an application to try it:
-#$ docker run --name some-wordpress -p 8080:80 -d wordpress => https://hub.docker.com/_/wordpress
+docker run --name some-wordpress -p 8080:80 -d wordpress => https://hub.docker.com/_/wordpress
 
 # Cleanup 
 docker system prune -f
+
+
+
 
 # excericese
 # which docker version

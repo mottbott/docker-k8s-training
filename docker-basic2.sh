@@ -19,6 +19,9 @@ docker run -d --name mysql-db -e MYSQL_ROOT_PASSWORD='db_pass123' mysql
 # command vs. entrypoint (here are slides necessary)
 # CMD defines the programs that would be run within the container. CMD for nginx or mysqld. ubnutu run bash, if it can not find a terminal it exists. 
 
+# immediately disappears container are meant to run a specific tasks or process. only lives as long the process is alive. 
+ docker run ubuntu
+
 # CMD will be replace entirely
 docker run ubuntu sleep 5
 

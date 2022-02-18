@@ -3,7 +3,8 @@
 # How to prepare your Zuehlke Notebook
 * Goal: Use the full potential of todays possibilities. 
 * Docker Desktop
-* Login for Docker Hub
+* Diclamer for use cases 
+* Login for Docker Hub. Seems like not possible. Be aware of Zuhelke office Limits.
 * Binaries im system path: kubectl (https://kubernetes.io/de/docs/tasks/tools/), docker-compose (https://docs.docker.com/compose/install/)
 * Git
 * Recommended: Windows-Subsystem für Linux (WSL) with Ubuntu 18 or 20

@@ -1,0 +1,10 @@
+prometheus-node-exporter:
+   
+
+grafana:
+  ingress:
+    enabled: true
+    hosts: 
+      - grafana.local
+    annotations:
+      kubernetes.io/ingress.class: nginx

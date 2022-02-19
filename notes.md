@@ -3,9 +3,9 @@
 # How to prepare your Zuehlke Notebook
 * Goal: Use the full potential of todays possibilities. 
 * Docker Desktop
-* Diclamer for use cases 
+* Disclaimer for use cases 
 * Login for Docker Hub. Seems like not possible. Be aware of Zuhelke office Limits.
-* Binaries im system path: kubectl (https://kubernetes.io/de/docs/tasks/tools/), docker-compose (https://docs.docker.com/compose/install/)
+* Binaries im system path: helm (URL TODO), kubectl (https://kubernetes.io/de/docs/tasks/tools/), docker (URL todo), docker-compose (https://docs.docker.com/compose/install/). Docker Desktop WSL integration provides these binaries (except Helm)
 * Git
 * Recommended: Windows-Subsystem für Linux (WSL) with Ubuntu 18 or 20
 * Todo: Provide a mini tutorial how to set it up

@@ -2,11 +2,35 @@
 # compose 
 # explain versions  1, 2,3 default bridge network in version 1, 
 # Introduction to yaml => SLide, advantages fo compose
-# Link: https://docs.docker.com/compose/compose-file/
-# Good example https://github.com/dockersamples/example-voting-app
+# doc and install: https://docs.docker.com/compose/compose-file/ and https://docs.docker.com/compose/install/
+# Used demo app to demostrate https://github.com/dockersamples/example-voting-app
+#
 
 
-# Excercise
+
+# Start with a Kafka example
+
+
+
+
+# First Demostration/ Than repeat the Excerise
+
+git clone https://github.com/dockersamples/example-voting-app.git
+
+# Gui opens vote not possible
+docker build . -t voting-app
+docker -p 5000:80 voting-app
+# Now open the browser and show in browser and see that the redis issmissing
+
+# build a redis and link 
+docker run --name=redis -d redis:alpine
+docker run -d --name=clickcounter --link redis:redis -p 5000:80 voting-app
+open the browser and show again 
+
+# Optional step: start a postgress with name db, start the worker (dotnet) and result app (js)
+
+#Then run the compose file and explain that all the work we done before can be stored in a yaml file 
+
 #First create a redis database container called redis, image redis:alpine. 
 docker run --name redis -d redis:alpine
 

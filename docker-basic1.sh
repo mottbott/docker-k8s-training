@@ -1,6 +1,8 @@
 #!/bin/bash
 #Docker Part 1
-#Why Docker, basic understanding and commands
+#Why Docker, basic understanding of architecture and commands
+
+# Before: Show the architeture and give some background: REST API, Docker Daemon
 
 # get the runtime version 
 docker version
@@ -24,7 +26,9 @@ docker run -p 80:80  nginx
 # explain:  detach -d is short for --detach, which means you just run the container and then detach from it. Essentially, you run container in the background.
 docker run --name hallo_world -p 80:80 -d nginx
 curl localhost
-docker stop hallo_world
+docker stop hello_world
+docker start hello_world
+docker container rename hello_world hello_world_neu
 docker rm hallo_world
 
 # -it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
@@ -50,8 +54,10 @@ docker system prune -f
 docker version
 # how many containers are running
 docker ps 
+dcoker container ls
 # How many containers are PRESENT on the host now? Including both Running and Not Running ones
 docker ps  -a
+docker container ls -a
 #How many ports are published on this container?=> Run the command docker ps and look under the PORTS column.
 docker ps  
 #Which of the below ports are the exposed on the CONTAINER?

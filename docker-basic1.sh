@@ -39,6 +39,12 @@ docker start hello_world
 docker container rename hello_world hello_world_neu
 docker rm hallo_world
 
+#unless-stopped, always,  on-failure
+docker run -d --restart always -p 81:80 -m 64m --name test nginx:latest
+docker container update --restart unless-stopped test
+docker container inspect test
+
+
 # -it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
 # -itd, it runs both the -it options and detaches you from the container. As a result, your container will still be running in the background even without any default app to run.
 # explain exec
@@ -52,6 +58,9 @@ docker run ubuntu cat /etc/*release*
 docker run --name some-wordpress -p 8080:80 -d wordpress => https://hub.docker.com/_/wordpress
 
 # Cleanup 
+
+#Which command is used to delete the stopped containers?
+docker container prune
 docker system prune -f
 
 

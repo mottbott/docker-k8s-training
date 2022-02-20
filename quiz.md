@@ -85,4 +85,52 @@ Which command is used to get the stream logs of the webapp container so that you
  docker container create -d --name=nginx webapp
  docker container create -d nginx
 
+ Which command can be used to check the restart policy of webapp container?
+
+ docker container inspect webapp
+ docker container info webapp
+ docker container check webapp
+ None of the above
+
+ Which option could be used to expose a webapp container to the outside world?
+
+ -p
+ -P
+ –publish
+ –expose
+
+ What is the hostname set on the container when the following command is run :
+docker container run -d --name webapp httpd
+
+ webapp
+ apache
+ httpd
+ containers unique id
+
+ Map TCP port 80 in the container to port 8080 on the Docker host for connections to host IP 192.168.1.10 . Select the all right answers
+
+ -p 192.168.1.10:8080:80
+ -p 192.168.1.10:80:8080
+ -p 192.168.1.10:8080:80/tcp
+ -p 192.168.1.10:8080:8080
+
+ We have created a docker compose file for an application. Choose the correct option to deploy the application and run it in the background.
+
+ docker-compose up -d
+ docker-compose up -b
+ docker-compose up --detach
+ docker-compose start --background
+
+ Compose files using the version ‘2’ and version ‘3’ syntax must indicate the version number at the root of the document.
+
+ True
+ False
+
+ What is the command to see the running process inside of containers created by compose file?
+
+ docker-compose top
+ docker-compose stats
+ docker top
+ docker stats
+
 ## K8S

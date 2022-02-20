@@ -9,11 +9,13 @@
 
 
 # Start with a Kafka example
-
-
-
-
 # First Demostration/ Than repeat the Excerise
+
+docker-compose logs
+ docker-compose up
+ docker-compose down
+  docker-compose ps
+
 
 git clone https://github.com/dockersamples/example-voting-app.git
 

@@ -16,7 +16,9 @@ docker run --help
 # start nginx and open in browser, see the live log, realise what happens if stop with control + c, explain port mapping, explain image  at the end
 # mention attach mode
 # Rule: hostport / container port
+# explain crtl + c to exit 
 docker run -p 80:80  nginx 
+
 
 # show documentation and resources
 
@@ -24,8 +26,14 @@ docker run -p 80:80  nginx
 # Name is used, even if the container is stopped
 # attach  vs. detach explain 
 # explain:  detach -d is short for --detach, which means you just run the container and then detach from it. Essentially, you run container in the background.
-docker run --name hallo_world -p 80:80 -d nginx
+docker run --name hello_world -p 80:80 -d nginx
 curl localhost
+
+# show memory usage & processes & logs
+docker stats hello_world
+docker top hello_world 
+docker logs -f hello_world
+
 docker stop hello_world
 docker start hello_world
 docker container rename hello_world hello_world_neu
@@ -87,3 +95,8 @@ docker pull nginx:1.14-alpine
 docker run -d --name webapp nginx:1.14-alpine
 # Cleanup: Delete all images on the host Remove containers as necessary
 docker rmi $(docker images -aq)
+
+#  Delete all running and stopped containers on the host. (Explore the documentation to identify an option to force remove running containers)
+docker container rm -f $(docker container ls -aq)
+
+

@@ -62,4 +62,27 @@ How do I get only the IDs of running containers?
  docker container ls -aq
  docker container ls -q
 
+You have a webapp container and image httpd.
+Inspect the logs of the webapp container.
+Which command is used to get the stream logs of the webapp container so that you can view the logs live?
+
+ docker container log webapp
+ docker container log -f webapp
+ docker container logs webapp
+ docker container logs -f webapp
+
+ Delete all running and stopped containers on the host. (Explore the documentation to identify an option to force remove running containers)
+
+ docker container stop $(docker container ls -q)
+ docker container rm $(docker container ls -q)
+ docker container stop $(docker container ps -q)
+ docker container rm -f $(docker container ls -aq)
+
+ Run a container named webapp with nginx image in detached mode. Select the right answer.
+
+ docker container run --detach --name=webapp nginx
+ docker container run --detach --name=nginx webapp
+ docker container create -d --name=nginx webapp
+ docker container create -d nginx
+
 ## K8S

@@ -46,4 +46,6 @@ kubectl explain explain deployment.spec.replicas
 # Also see https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/
 # Accessing the Kubernetes API directly https://nieldw.medium.com/curling-the-kubernetes-api-server-d7675cfc398c
 
-
+# TODO
+# Kubectl Plugin Manager KREW
+# Kubernetes IDE Plugins

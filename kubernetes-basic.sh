@@ -1,8 +1,7 @@
 # Topics to put somewhere
-## Usage of ConfigMap
-## Usage of Secret (Extended: Ways to manage secrets the real way or why secrets are usually not very secret)
 ## Usage of ENV vars
 ## Usage of Service (NodePort, ClusterIP, LoadBalancer)
+## Liveness/readyness probes
 ## Hint at DNS
 ## Explain K8s architecture and essential components (ETCD, Kube API, Kube Controller, Kube Scheduler, Kube Proxy, Kubelet, ...)
 ## Hint at CPU/Memory resources request/limits?
@@ -38,6 +37,8 @@ kubectl api-resources
 kubectl help
 # Also see https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 # and https://kubernetes.io/docs/reference/kubectl/conventions/
+
+alias k=kubectl
 
 # Inpsect Kubernetes resources
 kubectl explain

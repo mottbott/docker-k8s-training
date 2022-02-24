@@ -1,3 +1,5 @@
+# TODO: Services and testing the deployment with a browser
+
 # Create a deployment with nginx
 kubectl create deployment --image=nginx nginx
 # So what is the difference? There is still a pod, but with a weird name
@@ -32,3 +34,4 @@ kubectl delete -f deployment-nginx.yaml
 # Also be aware, this is dependant on the type and name of the resources (kind, apiVersion, metadata.name)
 
 # Explain alternative deployment methods StatefulSet, DaemonSet, (ReplicaSet)
+

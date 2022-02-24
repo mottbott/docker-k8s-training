@@ -1,3 +1,7 @@
+## TODO
+## Usage of ConfigMap
+## Usage of Secret (Extended: Ways to manage secrets the real way or why secrets are usually not very secret)
+
 # Create StatefulSet based on the example
 k apply -f kubernetes/statefulset/resources.yaml
 # Inpsect the resources that have been created. What about their name?
@@ -15,6 +19,7 @@ k port-forward service/nginx-sts 8180:80
 k cp kubernetes/statefulset/index-light.html web-0:/usr/share/nginx/html/index.html
 k cp kubernetes/statefulset/index-dark.html web-1:/usr/share/nginx/html/index.html
 
+# TODO: Alternatively create a NodePort service?
 # Foward the specific pods to local ports to verify the result
 k port-forward pod/web-0 8080:80
 k port-forward pod/web-1 8181:80

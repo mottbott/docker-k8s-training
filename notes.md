@@ -15,7 +15,7 @@ Please install the following software according to the linked resources. A short
 * Windows Terminal (optional, but very nice)
 
 ## Confiugration & Accounts
-* Enable WSL integration for the installed distribution
+* Enable WSL integration for Docker Desktop
 * Enable local Kubernetes in Docker Desktop
 * Login for Docker Hub, if you plan on doing the training in the Zühlke offices (due to IP based pull limits)
 * Enable nested virtualization, if running in VM
@@ -26,7 +26,9 @@ This is a quick step by step guide on what you should prepare before the course 
 
 If you get stuck or have any questions, do not hesiate to contact us in advance.
 
-### Enable nested virtualization **Only required if running this inside a VM**
+### (Enable nested virtualization)
+
+**Only required if running inside a VM**
 
 https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 
@@ -87,6 +89,10 @@ See https://www.docker.com/products/docker-desktop
 
 ![WSL backend for Docker Desktop](images/docker-desktop-wsl-backend.png)
 
+### Enable WSL integration in Docker Desktop
+
+![WSL integration for Docker Desktop](images/docker-desktop-wsl-integration.png)
+
 ### Enable Kubernetes in Docker Desktop
 
 ![Kubernetes for Docker Desktop](images/docker-desktop-kubernetes.png)
@@ -101,7 +107,9 @@ sudo apt install -y git
 ### Install Helm in Ubuntu
 
 ```shell
-sudo apt install -y git
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
 ```
 
 ### Create login for Docker Hub

@@ -7,6 +7,8 @@
 ## Hint at CPU/Memory resources request/limits?
 ## Hint at Quotas (CPU/memory/pods)
 ## Explain & Usage of Ingress?
+## Add on topics Jobs & CronJobs
+## Deep dive on labels/label selectors. Doing blue/green or canary deployment with services & labels
 ## What the heck is YAML? Can't I just use JSON? (yes you can)
 
 # Run pod simple
@@ -24,6 +26,9 @@ kubectl get pod nginx -o yaml
 # Delete pod again
 kubectl delete pod nginx
 
+# TODO expose/port-forward
+
+
 # Resources 
 ## Structure, API / Kind
 ## Most frequently used resources: Deployment, Service, ConfigMap, Secret
@@ -40,11 +45,26 @@ kubectl help
 
 alias k=kubectl
 
+# TODO bash completion
+# Hint at zsh + https://github.com/ohmyzsh/ohmyzsh + kubectl plugin
+
 # Inpsect Kubernetes resources
 kubectl explain
-kubectl explain explain deployment.spec.replicas
+kubectl explain deployment.spec.replicas
+kubectl explain deployment.spec.selector --recursive
 # Also see https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/
-# Accessing the Kubernetes API directly https://nieldw.medium.com/curling-the-kubernetes-api-server-d7675cfc398c
+
+# Access the API natively without having to fiddle with authentication
+
+kubectl proxy
+curl http://localhost:8001/
+curl http://localhost:8001/api/v1/pods
+
+# Check out the OpenAPI spec of your cluster
+curl http://localhost:8001/openapi/v2
+# Can load it into any OpenAPI browser like https://editor.swagger.io/ (might be slow, does not allow mixing http/https so go via file)
+curl http://localhost:8001/openapi/v2 -o k8s-api.yaml
+
 
 # TODO
 # Kubectl Plugin Manager KREW

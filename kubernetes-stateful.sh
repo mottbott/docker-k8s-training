@@ -26,3 +26,5 @@ k port-forward pod/web-1 8181:80
 
 # As this is persistent storage, this change is permanent in case of a pod restart
 k delete pod web-0
+
+# Service special case: Headless service to give unique but deterministic DNS names for each Pod.

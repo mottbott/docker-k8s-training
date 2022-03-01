@@ -1,4 +1,4 @@
-# TODO: Services and testing the deployment with a browser
+# TODO: Services and testing the deployment with a browser - NodePort
 
 # Create a deployment with nginx
 kubectl create deployment --image=nginx nginx
@@ -18,6 +18,12 @@ k scale deployment nginx --replicas=2
 # See the new pods? What happens if we delete an existing pod?
 k delete pod -l "app=nginx"
 
+# Rollout handling
+kubectl rollout status deployment/nginx
+kubectl rollout history deployment/nginx
+kubectl rollout undo deployment/nginx
+# Redo?
+
 kubectl run nginx --image=nginx --dry-run=client -o yaml
 # Edit resources and apply the changes immediately
 kubectl edit deployment nginx
@@ -27,6 +33,8 @@ vi deployment-nginx.yaml
 # Apply the changed configuration
 kubectl apply -f deployment-nginx.yaml
 # See WARNING. Should not mix imperative/declarative commands (due to last-applied config)
+
+
 
 # Want to remove somethings you added without any hassle? Just run
 kubectl delete -f deployment-nginx.yaml

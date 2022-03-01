@@ -134,3 +134,9 @@ docker container run -d --name webapp httpd
  docker stats
 
 ## K8S
+
+How many pods are running in the "kube-system" namespace on a default Docker Desktop cluster?
+0
+7
+9
+13

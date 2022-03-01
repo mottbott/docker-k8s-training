@@ -140,3 +140,46 @@ How many pods are running in the "kube-system" namespace on a default Docker Des
 7
 9
 13
+
+What is a Helm chart?
+A file that contains Kubernetes authentication certificates.
+A Helm documentation file.
+A package that you can use to install an application with Helm.
+
+
+A file that configures your cluster nodes.
+What is a Helm repository?
+A cache of Kubernetes documentation.
+A collection of Linux packages.
+A collection of charts you can download and use.
+A place to find and download container images.
+
+Which command can you use to install an application in the cluster using Helm?
+helm install
+helm add
+helm setup
+helm download
+
+You are creating a new Deployment. What field can you use to set the number of Pods the Deployment will create?
+template
+podCount
+replicas
+containers
+
+You need to deploy a new version of your code, so you update the image specified in a Deployment to the new version. Kubernetes gradually replaces existing Pods with new Pods running the new code. What is this process called?
+Blue/green Deployment
+Rolling update
+Cluster update
+Rollback
+
+What object can you use to bind to a PersistentVolume and then mount that storage in a Pod?
+PersistentVolume
+StorageClass
+PersistentVolumeClaim
+Volume Mount
+
+What Kubernetes feature can you use to define an abstract storage resource that can be consumed later?
+Volume Mount
+Volume
+StorageClass
+PersistentVolume

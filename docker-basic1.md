@@ -2,30 +2,14 @@
 #Docker Part 1
 #Why Docker, basic understanding of architecture and commands
 
-# Before: Show the architeture and give some background: REST API, Docker Daemon
-
-# get the runtime version 
-docker version
-
-# 1st hello world
-docker run hello-world
-
-# explain command, action, how theses commands are used. 
-docker run --help
-
-# start nginx and open in browser, see the live log, realise what happens if stop with control + c, explain port mapping, explain image  at the end
-# mention attach mode
-# Rule: hostport / container port
-# explain crtl + c to exit 
-docker run -p 80:80  nginx 
-
-
-# show documentation and resources
-
 # Name vs id
 # Name is used, even if the container is stopped
 # attach  vs. detach explain 
 # explain:  detach -d is short for --detach, which means you just run the container and then detach from it. Essentially, you run container in the background.
+
+#first example what docker desktop suggest
+docker run -d -p 80:80 docker/getting-started
+
 docker run --name hello_world -p 80:80 -d nginx
 curl localhost
 
@@ -38,6 +22,34 @@ docker stop hello_world
 docker start hello_world
 docker container rename hello_world hello_world_neu
 docker rm hallo_world
+
+
+# Before: Show the architecture and give some background: REST API, Docker Daemon
+
+# show the status of client and daemon components
+docker version
+
+# cli version
+docker --version 
+
+#more information about the docker host, e.g. numbers of containers
+docker system info
+
+# 1st hello world
+docker run hello-world
+
+# explain command, action, how theses commands are used. 
+docker run --help
+
+# start nginx and open in browser, see the live log, realise what happens if stop with control + c, explain port mapping, explain image  at the end
+# mention attach mode
+# Rule: host port / container port
+# explain crtl + c to exit 
+docker run -p 80:80  nginx 
+
+
+# show documentation and resources
+# Explain here the architecture with whiteboard 
 
 #unless-stopped, always,  on-failure
 docker run -d --restart always -p 81:80 -m 64m --name test nginx:latest
@@ -66,12 +78,12 @@ docker system prune -f
 
 
 
-# excericese
+# exercises
 # which docker version
 docker version
 # how many containers are running
 docker ps 
-dcoker container ls
+docker container ls
 # How many containers are PRESENT on the host now? Including both Running and Not Running ones
 docker ps  -a
 docker container ls -a

@@ -3,18 +3,19 @@ The most basic command
 ```
 docker run hello-world
 ```
-💡docker run <image name>
-Docker run. First example what Docker Desktop suggest.
+
+First example what Docker Desktop suggests.
 ```
 docker run -d -p 8001:80 docker/getting-started
  ```
-#Run an Nginx web server and lets discover it.
-```
-💡 If you don't use a name an id will be created.
-💡 -d is short for --detach, which means you just run the container and then detach from it. Essentially, you the run container in the background.
 
-💡 First host port, second container port. 
+# Run an Nginx web server and lets discover it.
+💡 If you don't use a name an id will be created.
+ -d is short for --detach, which means you just run the container and then detach from it. Essentially, you the run container in the background.
+First host port, second container port. 
+```
 docker run --name hello_world -p 8002:80 -d nginx
+```
 List containers
 ```
 docker ps
@@ -23,7 +24,7 @@ Show stats: The docker stats command returns a live data stream for running cont
 ```
 docker stats hello_world
 ```
-docker top: Display the running processes of a container.
+Docker top to display the running processes of a container.
 ```
 docker top hello_world 
 ```
@@ -39,7 +40,7 @@ Start the container
 ``` 
 docker start hello_world
 ```
-rename the container
+Rename the container
 ```  
 docker container rename hello_world hello_world_neu
 ```
@@ -47,15 +48,16 @@ Remove the container
 ```  
 docker rm hello_world_neu
 ```
-
-📝Start three different Nginx containers. Did you have any challenges?
-📝Start a docker container, open Nginx in the browser and follow the logs.
-📝Run a container with Wordpress. See https://hub.docker.com/_/wordpress
+## Exercise
+* 📝Start three different Nginx containers. Did you have any challenges?
+* 📝Start a docker container, open Nginx in the browser and follow the logs.
+* 📝Run a container with Wordpress. See https://hub.docker.com/_/wordpress
 
 
 # CLI - `docker`
 * Restructured in 2017. https://www.docker.com/blog/whats-new-in-docker-1-13/
-* We can use the following syntax: docker <object> <command> <options>
+* Using an oject is more structured but not necessarey
+* docker <object> <command> <options>
 * Container is the object for docker run. Other objects are fore example image, network or volume.
 
 These two commands are the same
@@ -92,8 +94,8 @@ docker container inspect my_server
 ```
 
 # Run a command inside the container
-*-it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
-*-itd, it runs both the -it options and detaches you from the container. As a result, your container will still be running in the background even without any default app to run.
+* -it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
+* -itd, it runs both the -it options and detaches you from the container. As a result, your container will still be running in the background even without any default app to run.
 ``` 
 docker run -it ubuntu
 docker run ubuntu cat /etc/*release*

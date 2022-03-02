@@ -1,6 +1,6 @@
-#!/bin/bash
 # compose 
 # explain versions  1, 2,3 default bridge network in version 1, 
+# In version 3 there is automatically a own network created  https://docs.docker.com/compose/compose-file/ => there is explained version ans services: https://docs.docker.com/compose/compose-file/compose-file-v3/
 # Introduction to yaml => SLide, advantages fo compose
 # doc and install: https://docs.docker.com/compose/compose-file/ and https://docs.docker.com/compose/install/
 # Used demo app to demostrate https://github.com/dockersamples/example-voting-app
@@ -8,14 +8,11 @@
 
 
 
-# Start with a Kafka example
+# 1st example Kafka: Start the confluent cloud write a message and open in conduckor
+# 2nd example: Open a simple wordpress 
+
+
 # First Demostration/ Than repeat the Excerise
-
-docker-compose logs
- docker-compose up
- docker-compose down
-  docker-compose ps
-
 
 git clone https://github.com/dockersamples/example-voting-app.git
 

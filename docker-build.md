@@ -1,4 +1,4 @@
-#!/bin/bash
+
 #images, build, environment variables, entrypoint vs. cmd, 
 
 # show layered architecture and copy-on-write

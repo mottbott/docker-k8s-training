@@ -1,25 +1,33 @@
 # Basics
-The most basic command
+Run the first container
 ```
 docker run hello-world
 ```
 
-First example what Docker Desktop suggests.
+Let's try the example which Docker Desktop suggests.
 ```
 docker run -d -p 8001:80 docker/getting-started
  ```
+ 💡 The first port is the host port, the second the container port. 
 
-# Run an Nginx web server and lets discover it.
-💡 If you don't use a name an id will be created.
- -d is short for --detach, which means you just run the container and then detach from it. Essentially, you the run container in the background.
-First host port, second container port. 
+# Run a Nginx web server and discover it
+Let's start a Nginx container. 
 ```
 docker run --name hello_world -p 8002:80 -d nginx
 ```
+💡 The option -d is short for --detach, which means you just run the container and then detach from it. Essentially, you the run container in the background. Default is the attach mode.
+
 List containers
 ```
 docker ps
 ```
+💡 If you don't use a name for your container an ID will be created.
+
+List all containers including exited container. 
+```
+docker ps -a
+```
+💡 Possible States of a Docker Container: Running, Restarting, Exited, Paused and Dead.
 Show stats: The docker stats command returns a live data stream for running containers. 
 ```
 docker stats hello_world
@@ -28,7 +36,7 @@ Docker top to display the running processes of a container.
 ```
 docker top hello_world 
 ```
-Show Logs
+Show Logs and follow the log output
 ```
 docker logs -f hello_world
 ```
@@ -36,6 +44,8 @@ Stop the container
 ```
 docker stop hello_world
 ```
+💡 A stopped container is in the state exited.
+
 Start the container
 ``` 
 docker start hello_world
@@ -48,54 +58,76 @@ Remove the container
 ```  
 docker rm hello_world_neu
 ```
+💡Only stopped container can be removed.
+
+To delete all running and stopped containers on the host. 
+```  
+docker container rm -f $(docker container ls -aq)
+```  
 ## Exercise
-* 📝Start three different Nginx containers. Did you have any challenges?
-* 📝Start a docker container, open Nginx in the browser and follow the logs.
-* 📝Run a container with Wordpress. See https://hub.docker.com/_/wordpress
+* 📝Start three different Nginx containers. Did you have any challenges and how did you solve them?
+* 📝Start a docker container, open Nginx in the browser and follow the logs via command line. Then reload the page.
+* 📝Run a container with Wordpress. The appropriate image can be found here. https://hub.docker.com/_/wordpress
 
 
 # CLI - `docker`
 * Restructured in 2017. https://www.docker.com/blog/whats-new-in-docker-1-13/
-* Using an oject is more structured but not necessarey
-* docker <object> <command> <options>
+* Using an object is more structured but not necessary
+* docker \<object> \<command> \<options>
 * Container is the object for docker run. Other objects are fore example image, network or volume.
+* The CLI support tab completion. For instance write **docker i** and press the tab key. All possible option should be displayed.  
 
-These two commands are the same
+These two commands have the same result.
 ``` 
-docker  run hello-world
+docker run hello-world
 docker container run hello-world
+``` 
 Show the status of client and daemon components
 ``` 
 docker version
 ```
-Show the cli version
+Show the engine version only
 ``` 
 docker --version 
+``` 
 More information about the docker host, e.g. numbers of containers
 ``` 
 docker system info
 ```
-💡 If you need help
+If you need help
 ``` 
+docker 
 docker run --help
 docker container --help
 docker container run --help
 ```
-📝 Use the help to figure out how to list all images.
+
+## Exercise
+* 📝 Use Docker help to figure out how to list all images.
+* 📝 Figure out how to get the last three log entries of a container. 
 
 # Container which automatically restart
-💡 We have three options: unless-stopped, always, on-failure
-See https://docs.docker.com/config/containers/start-containers-automatically/
-
+If you reboot your system, your running container will not be alive. Unless you use **--restart always**. 
 ```
 docker run -d --restart always -p 8005:80 --name my_server nginx
 docker container update --restart unless-stopped my_server
 docker container inspect my_server
 ```
+* 💡 With the option **inspect** you can get further information about your container, like the restart configuration. 
+* 💡 We have three options: unless-stopped, always, on-failure
+* 💡 See https://docs.docker.com/config/containers/start-containers-automatically/
+
 
 # Run a command inside the container
-* -it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
-* -itd, it runs both the -it options and detaches you from the container. As a result, your container will still be running in the background even without any default app to run.
+Start a container and execute a command.
 ``` 
-docker run -it ubuntu
 docker run ubuntu cat /etc/*release*
+docker run -it ubuntu
+``` 
+💡 The option -it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
+
+Run a command in an existing container. 
+``` 
+docker exec -it hello_world_neu cat /etc/*release*
+docker exec -it hello_world_neu bash
+``` 

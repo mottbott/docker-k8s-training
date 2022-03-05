@@ -7,24 +7,28 @@ Create StatefulSet based on the example
 k apply -f kubernetes/statefulset/resources.yaml
 ```
 
-Inpsect the resources that have been created. What about their name?
+Check the result if the deployment worked by visiting https://localhost:31313
+
+Inspect the resources that have been created. What about their name?
 ```
 k get pods
 k get service
-k get pvc
-k get pv
+k get persistentvolumeclaims
+k get persistentvolume
 ```
 
-Forward service 
+What are these volumes we just used/created?
+Explain `PersistentVolume`s and `PersistentVolumeClaim`s as well as retention policies.
+
+💡 Retention policies should always be checked before depleting any `PersistentVolume` or `PersistentVolumeClaim`
+
+So what about storage classes?
 ```
-k port-forward service/nginx-sts 8180:80
+kubectl get storageclass
+kubectl get storageclass hostpath -o yaml
 ```
-
-❔ What are these volumes we just used/created?
-
-Explain PVs / PVCs. Retention policies
-
-❔ What are storage classes?
+* 💡 Visit https://kubernetes.io/docs/concepts/storage/storage-classes/ for more information
+* 💡 `StorageClass`es will be one of the 
 
 Let's copy different content to the volumes to see the effect
 ```
@@ -33,17 +37,13 @@ k cp kubernetes/statefulset/index-dark.html web-1:/usr/share/nginx/html/index.ht
 ```
 💡 `cp` can be really hand but only works for volumes mounted on pods.
 
-Forward the specific pods to local ports to verify the result
-```
-k port-forward pod/web-0 8080:80
-k port-forward pod/web-1 8181:80
-```
-🚧 TODO: Alternatively create a NodePort service?
+Check the result of the change by going to https://localhost:31313
 
 As this is persistent storage, this change is permanent in case of a pod restart
 ```
 k delete pod web-0
 ```
-
-
 💡 Service special case: Headless service to give unique but deterministic DNS names for each Pod.
+
+* 📝 What happens with the `pv` if you delete the `StatefulSet`?
+* 📝 Create a custom `pvc` and use it in a `Deployment`. What is the difference compared to a `StatefulSet`?

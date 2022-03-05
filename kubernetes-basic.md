@@ -1,7 +1,7 @@
 # Basics
 Run simple pod
 ```
-kubectl run nginx --image nginx
+kubectl run nginx --image nginx --port 80
 ```
 Get all pods in the current namespace
 ```
@@ -23,39 +23,66 @@ See the whole resource of the pod in YAML format
 ```
 kubectl get pod nginx -o yaml
 ```
+Expose the pod to be able to access it locally
+```
+k port-forward pod/nginx 8888:80
+```
+Visit http://localhost:8888/ to view the default nginx page
+
 Delete pod again
 ```
 kubectl delete pod nginx
 ```
 
-🚧TODO expose/port-forward
-
+Inspect the cluster
+```
+kubectl get node
+kubectl describe node docker-desktop
+```
 
 # CLI - `kubectl`
 * How to even pronounce? kubecuddle (🥰) vs. kubecontrol vs. kubeCTL vs. ?
 * Types/groups of commands
-
-💡 Use short names to save time typing
-💡 imperative vs. declarative / create vs. apply - will revisit later
+* 💡 Use short names to save time typing
+* 💡 imperative vs. declarative / create vs. apply - will revisit later
 ```
 kubectl help
 ```
 Also see https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 and https://kubernetes.io/docs/reference/kubectl/conventions/
 
+To save some typing, an alias on the `kubectl` command is very common
 ```
 alias k=kubectl
 ```
 
-🚧TODO bash completion
+Even more convenience is provided with bash auto-completion
+```
+source <(kubectl completion bash)
+```
+💡 This can auto-complete resource types, options and even specific resource names
 
-🚧TODO Kubernetes IDE Plugins
+But this does not work out of the box with the alias. But can be fixed
+```
+complete -F __start_kubectl k
+```
 
-💡 zsh + https://github.com/ohmyzsh/ohmyzsh + kubectl plugin is quite powerful
+To make these changes permanent, they can be put into the bash startup script
+```
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -F __start_kubectl k' >>~/.bashrc
+```
+* 💡 zsh + https://github.com/ohmyzsh/ohmyzsh + kubectl plugin https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl is quite convenient and powerful 
+* 💡 IDEs provide integrations (listing resources, auto-completion, debugging) for Kubernetes which can be very helpful. 
+  * https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vs-tools-for-kubernetes
+  * https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro
+  * https://plugins.jetbrains.com/plugin/10485-kubernetes 
+  * https://code.visualstudio.com/docs/azure/kubernetes
 
 # Resources
-* Structure, API / Kind
-* Most frequently used resources: Deployment, Service, ConfigMap, Secret
+Structure, API / Kind
+Most frequently used resources: Deployment, Service, ConfigMap, Secret
 ```
 kubectl api-resources
 ```

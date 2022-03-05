@@ -6,7 +6,7 @@
 * [Helm](kubernetes-helm.md)
 
 # Topics to (maybe) put somewhere
-* ENV vars
+* `kubectl exec`
 * Service (NodePort, ClusterIP, LoadBalancer)
 * Liveness/readyness probes
 * DNS in and around the cluster

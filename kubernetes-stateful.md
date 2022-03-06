@@ -1,7 +1,7 @@
 # Stateful
 
 Create StatefulSet based on the example
-```
+```shell
 kubectl apply -f kubernetes/statefulset/resources.yaml
 ```
 Check the result if the deployment worked by visiting http://localhost:30888 
@@ -9,7 +9,7 @@ Check the result if the deployment worked by visiting http://localhost:30888
 📝 Why is there a nginx error page displayed?
 
 Inspect the resources that have been created. What about their name?
-```
+```shell
 kubectl get pods
 kubectl get service
 kubectl get persistentvolumeclaims
@@ -22,7 +22,7 @@ Explain `PersistentVolume`s and `PersistentVolumeClaim`s as well as retention po
 💡 Retention policies should always be checked before depleting any `PersistentVolume` or `PersistentVolumeClaim`
 
 So what about storage classes?
-```
+```shell
 kubectl get storageclass
 kubectl get storageclass hostpath -o yaml
 ```
@@ -30,7 +30,7 @@ kubectl get storageclass hostpath -o yaml
 * 💡 `StorageClass`es will be one of the 
 
 Let's copy different content to the volumes to see the effect
-```
+```shell
 kubectl cp kubernetes/statefulset/index-light.html web-0:/usr/share/nginx/html/index.html
 kubectl cp kubernetes/statefulset/index-dark.html web-1:/usr/share/nginx/html/index.html
 ```

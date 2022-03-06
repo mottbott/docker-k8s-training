@@ -3,12 +3,14 @@ There are volume mount and bind mounts. The main difference a bind mount has fro
 
 In the example we will create our own **index.html** and mount into the container. 
 ```
+cd /tmp
+mkdir www
 echo "hello world" > index.html
 docker run -d -p 8003:80 -v /tmp/www:/usr/share/nginx/html nginx:latest
 ```
 ## Exercise
-* 📝 Create your own **index.html**  and run it a volume mount in your Nginx container.
-* 📝 Open the website in your browser and modify the **index.html**. Refresh afterwards.
+* 📝 Create your own **index.html**  and run it a volume mount in a Nginx container.
+* 📝 Open the website in your browser and modify the **index.html**. Refresh afterwards to see the changes.
   
 Create a managed volume and inspect it
 ```
@@ -21,7 +23,7 @@ Delete the volume
  docker volume rm my-vol 
  ```
 
-Create a nginx container with a bind mount or volume mount 
+Create a nginx container with managed volume via  bind mount or volume mount 
 ```
 docker run -d  --name devtest --mount source=myvol2,target=/app nginx:latest
 # Same with volume mount
@@ -65,5 +67,5 @@ docker network create --driver bridge --subnet 182.18.0.1/24 --gateway 182.18.0.
 ## Exercise
 * 📝 Deploy a MySQL database using the mysql:5.6 image and name it mysql-db. Attach it to the newly created network wp-mysql-network
 * 📝 Set the database password to use db_pass123. The environment variable to set is MYSQL_ROOT_PASSWORD.
-* 📝 Inspect the container if it is attached to the network.
-* 📝 Remove everything you have created before.
+* 📝 Inspect the container if it is attached to the created network.
+* 📝 Remove all resources you have created during this session.

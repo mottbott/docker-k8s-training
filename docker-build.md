@@ -39,11 +39,12 @@ docker run -d --name blue-app -e APP_COLOR='blue' -p 38282:8080 kodekloud/simple
 ```
 * 💡 Variables have the following format: KEY=value
 * 💡 Inside the container you can also use the echo command to print a shell variable. **echo $KEY**
+* 💡 The option **-e** can be used multiple times.
 
 ## Exercise
 * 📝 Build your own image based on the given example with following image name and tag *my-webapp:1.0*. The source code can be found here https://github.com/kodekloudhub/webapp-color
 * 📝  Run an instance of the image webapp-color and publish port *8080* on the container to *8282* on your host. Choose the color 'green' for your webapp.
-* 📝 *Optional:* Deploy a mysql database using the mysql image and name it mysql-db. Set the database password to use db_pass123. Lookup the mysql image on Docker Hub and identify the correct environment variable to use for setting the root password.
+* 📝 *Optional:* Deploy a MySQL database using the mysql image and name it mysql-db. Set the database password to use db_pass123. Lookup the MySQL image on Docker Hub and identify the correct environment variable to use for setting the root password.
 
 
 # command vs. entrypoint 

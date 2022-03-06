@@ -1,48 +1,54 @@
-# compose 
-# explain versions  1, 2,3 default bridge network in version 1, 
-# In version 3 there is automatically a own network created  https://docs.docker.com/compose/compose-file/ => there is explained version ans services: https://docs.docker.com/compose/compose-file/compose-file-v3/
-# Introduction to yaml => SLide, advantages fo compose
-# doc and install: https://docs.docker.com/compose/compose-file/ and https://docs.docker.com/compose/install/
-# Used demo app to demostrate https://github.com/dockersamples/example-voting-app
-#
+# Docker Compose 
+* Docker Compose is a tool that was developed to help define and share **multi-container applications**. With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.
+* Docker compose itself is one binary file. If your are using Docker Desktop it should be installed via Settings => General and *Enables the docker-compose command to use Docker Compose V2*. For other purposes the installation manual can be found here: https://docs.docker.com/compose/install/
 
 
 
-# 1st example Kafka: Start the confluent cloud write a message and open in conduckor
-# 2nd example: Open a simple wordpress 
+# Start with some examples
+* .NET Microservices Sample Reference Application. Sample .NET Core reference application, powered by Microsoft, based on a simplified microservices architecture and Docker containers. https://github.com/dotnet-architecture/eShopOnContainers
+* A whole Apache Kafka setup including Broker, Zookeeper, ksqlDB and much more. https://github.com/confluentinc/cp-all-in-one.git
+* Wordpress: https://github.com/kassambara/wordpress-docker-compose
 
 
-# First Demostration/ Than repeat the Excerise
+Start the .NET Microservices Sample Reference Application
 
+```
+git clone https://github.com/dotnet-architecture/eShopOnContainers
+cd eShopOnContainers/src
+docker-compose build
+docker-compose up -d
+# Open in browser http://host.docker.internal:5104/catalog
+# Stop it
+docker-compose down
+```
+* 💡 Docker Compose commands are executed where the **docker-compose.yml** is located. 
+* 💡 The first clone, build and application start can take some time. 
+
+# Let's do it manually
+We start with an example to see where Docker Compose supports us. The example is a simple clickcounter webapp. The results are stored in a redis db. 
+```  
+# Clone the demo application
 git clone https://github.com/dockersamples/example-voting-app.git
+cd example-voting-app/votes
 
-# Gui opens vote not possible
+# Build the and start the webapp
 docker build . -t voting-app
-docker -p 5000:80 voting-app
-# Now open the browser and show in browser and see that the redis issmissing
+docker run -p 5000:80 voting-app
+``` 
 
-# build a redis and link 
+* Now wen can open the application in our browser and start voting. 
+* In the logs we should see that the redis is missing. **redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. Name or service not known.**
+* Next we can create a Redis database. Afterward we start the voting-app and link it to our container so that the webapp can access the redis database. 
+``` 
 docker run --name=redis -d redis:alpine
 docker run -d --name=clickcounter --link redis:redis -p 5000:80 voting-app
-open the browser and show again 
+``` 
+💡 Using the link option is only for demonstration purpose. The --link flag is a deprecated legacy feature of Docker.
 
-# Optional step: start a postgress with name db, start the worker (dotnet) and result app (js)
 
-#Then run the compose file and explain that all the work we done before can be stored in a yaml file 
-
-#First create a redis database container called redis, image redis:alpine. 
-docker run --name redis -d redis:alpine
-
-#Next, create a simple container called clickcounter with the image kodekloud/click-counter, link it to the redis container that we created in the previous task and then expose it on the host port 8085
-#The clickcounter app run on port 5000. 
-docker run -d --name=clickcounter --link redis:redis -p 8085:5000 kodekloud/click-counter
-# You can now access this application using the Click-Counter tab above the terminal. Refresh the page and see the count increase.
-# Let's clean up the actions carried out in previous steps. Delete the redis and the clickcounter containers.
-#To stop the containers: docker stop <CONTAINER-NAME>
-#To delete the containers: docker rm <CONTAINER-NAME>
-
-#Create a docker-compose.yml file under the directory /root/clickcounter. Once done, run docker-compose up.
-
-#The compose file should have the exact specification as follows - redis service specification - Image name should be redis:alpine.
-#clickcounter service specification - Image name should be kodekloud/click-counter, app is run on port 5000 and expose it on the host port 8085 in the compose file.
-
+## Exercise
+* 📝 Explore the docker-compose.yml and figure out how services, images and port mappings are utilized. https://github.com/kassambara/wordpress-docker-compose/blob/master/docker-compose.yml
+* 📝 Create a **docker-compose.yml** file in your working directory. The webapplication contains of webapp and redis db. 
+* 📝 For the redis service you can use the image **redis:alpine.**
+* 📝 For the clickcounter service you can use the image **kodekloud/click-counter**.
+* The webapp runs on port 5000 and should be exposed it on the host port 8085.

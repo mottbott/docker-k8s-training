@@ -7,6 +7,7 @@ Download a python image from Docker hub.
 ```
 docker pull python
 ```
+💡 Docker Desktop depicts the images as well. 
 
 Delete all images on the host 
 ```
@@ -17,7 +18,7 @@ Build a docker image without a Tag
 docker build .
 ```
 * 💡 If you are using **build .** without any further options the image will only have an ID. 
-* 💡 A example app cen be found here: https://github.com/kodekloudhub/webapp-color
+* 💡 The example app cen be found here: https://github.com/kodekloudhub/webapp-color
 
 Add a tag and a version
 ```

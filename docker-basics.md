@@ -8,7 +8,8 @@ Let's try the example which Docker Desktop suggests.
 ```
 docker run -d -p 8001:80 docker/getting-started
  ```
- 💡 The first port is the host port, the second the container port. 
+ * 💡 The first port is the host port, the second the container port. 
+ * 💡 You don't need to write the URL Docker Desktop already provides the link via GUI via *Container/Apps*. 
 
 # Run a Nginx web server and discover it
 Let's start a Nginx container. 
@@ -45,6 +46,12 @@ Stop the container
 docker stop hello_world
 ```
 💡 A stopped container is in the state exited.
+
+
+## Exercise
+* 📝Run your first "Hello World" container.
+* 📝Can you find the container in your Docker Desktop GUI and stop it there?
+
 
 Start the container
 ``` 
@@ -129,5 +136,8 @@ docker run -it ubuntu
 Run a command in an existing container. 
 ``` 
 docker exec -it hello_world_neu cat /etc/*release*
+# terminal into the docker container
 docker exec -it hello_world_neu bash
 ``` 
+## Exercise
+* 📝 The Docker Desktop provides the CLI option. Can you find it?

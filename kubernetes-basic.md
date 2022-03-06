@@ -25,7 +25,7 @@ kubectl get pod nginx -o yaml
 ```
 Expose the pod to be able to access it locally
 ```
-k port-forward pod/nginx 8888:80
+kubectl port-forward pod/nginx 8888:80
 ```
 Visit http://localhost:8888/ to view the default nginx page
 

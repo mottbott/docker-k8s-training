@@ -8,6 +8,7 @@
 # Topics to (maybe) put somewhere
 * `kubectl exec`
 * Service (NodePort, ClusterIP, LoadBalancer)
+* File based ConfigMaps & Secrets 
 * Liveness/readyness probes
 * DNS in and around the cluster
 * CPU/Memory resources request/limits

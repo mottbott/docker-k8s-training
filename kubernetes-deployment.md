@@ -20,7 +20,7 @@ kubectl describe deployment nginx
 ```
 Expose the deployment using a `Service` of type `NodePort`
 ```
-k create service nodeport nginx --node-port=30080 --tcp 80:80
+kubectl create service nodeport nginx --node-port=30080 --tcp 80:80
 ```
 Visit http://localhost:30080/ to see your deployment.
 
@@ -28,8 +28,8 @@ Visit http://localhost:30080/ to see your deployment.
 
 How does this even know to what pod to route the traffic to? Let's inspect the created service
 ```
-k get service
-k get service nginx  -o yaml
+kubectl get service
+kubectl get service nginx  -o yaml
 ```
 
 Let's scale the deployment to more instances and watch what happens

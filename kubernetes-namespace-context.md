@@ -56,7 +56,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 Test the installation
 ```
-k krew list
+kubectl krew list
 ```
 📝 How many krew plugins do currently exist?
 
@@ -75,7 +75,7 @@ Let's explore the plugins
 ```
 kubectl ns
 kubectl ns test-env
-k ns --help
+kubectl ns --help
 
 kubectl ctx
 kubectl ctx docker-desktop

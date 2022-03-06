@@ -5,13 +5,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: nginx # has to match .spec.template.metadata.labels
+      app: nginx-sts # has to match .spec.template.metadata.labels
   serviceName: "nginx"
   replicas: 2
   template:
     metadata:
       labels:
-        app: nginx # has to match .spec.selector.matchLabels
+        app: nginx-sts # has to match .spec.selector.matchLabels
     spec:
       terminationGracePeriodSeconds: 10
       containers:
@@ -40,13 +40,14 @@ kind: Service
 metadata:
   name: nginx-sts
   labels:
-    app: nginx
+    app: nginx-sts
 spec:
   ports:
     - port: 80
       name: web
-      targetPort: http
+      targetPort: web
       nodePort: 30888
   type: NodePort
+  sessionAffinity: None
   selector:
-    app: nginx
+    app: nginx-sts

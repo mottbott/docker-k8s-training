@@ -1,28 +1,3 @@
-# Registry, Storage, Network
-
-# Registry 
-By default, the Docker engine interacts with DockerHub which is a hosted registry solution by Docker Inc. If you run **docker run nginx** the image is pulled from DockerHub.
-
-You can create your own registry and push/pull images from there. 
-``` 
-docker run -d -p 5000:5000 --name registry registry:2
-# Choose a folder with a Dockerfile
-docker build . -t my-image
-docker image tag my-image localhost:5000/my-image
-docker push localhost:5000/my-image
-#  Use docker pull [server-addr/image-name] to pull the images that we pushed earlier.
-docker pull localhost:5000/my-image
-``` 
-To check the list of images pushed , use 
-``` 
-curl -X GET localhost:5000/v2/_catalog
-``` 
-
-## Exercise
-* 📝 Run a registry server with name equals to my-registry using registry:2 image with host port set to 5001, and restart policy set to always. Note: Registry server is exposed on port 5000 in the image.
-* 📝 Pull the latest httpd image from docker hub and push it to your newly created registry. 
-  
-
 # Storage
 There are volume mount and bind mounts. The main difference a bind mount has from a volume is that since it can exist anywhere on the host filesystem, processes outside of Docker can also modify it. By default there is no persistence in your Docker container. 
 
@@ -83,7 +58,7 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ngni
 docker run -d --name ngnix_host --network=host nginx
 ```
 
-Create a new network
+Create a new network with the name wp-mysql-network
 ```
 docker network create --driver bridge --subnet 182.18.0.1/24 --gateway 182.18.0.1 wp-mysql-network
 ```

@@ -17,14 +17,20 @@ See the logs of the pod and follow them
 ```shell
 kubectl logs --follow nginx
 ```
+📝 How to list just the last 3 lines of log messages?
+
 See details of the pod like image, status, volumes, events etc.
 ```shell
 kubectl describe pod nginx
 ```
+📝 What is the name of the node the pod is running on?
+
 See the whole resource of the pod in YAML format
 ```shell
 kubectl get pod nginx -o yaml
 ```
+📝 Does the pod have any label set? Which?
+
 Expose the pod to be able to access it locally
 ```shell
 kubectl port-forward pod/nginx 8888:80
@@ -42,10 +48,16 @@ kubectl get node
 kubectl describe node docker-desktop
 ```
 
+More cluster information
+```shell
+kubectl version
+kubectl cluster-info
+kubectl cluster-info dump | less
+```
+
 # CLI - `kubectl`
 * How to even pronounce? kubecuddle (🥰) vs. kubecontrol vs. kubeCTL vs. ?
 * Types/groups of commands
-* 💡 Use short names to save time typing
 * 💡 imperative vs. declarative / create vs. apply - will revisit later
 ```shell
 kubectl help
@@ -88,6 +100,8 @@ Most frequently used resources: Deployment, Service, ConfigMap, Secret
 ```shell
 kubectl api-resources
 ```
+💡 Use short names to save time typing
+📝 Which of the API versions occurs most often?
 
 Inspect Kubernetes resources
 ```shell
@@ -96,6 +110,8 @@ kubectl explain deployment.spec.replicas
 kubectl explain deployment.spec.selector --recursive
 ```
 Also see https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/
+
+📝 How many fields does the status object of a `Pod` have?
 
 Access the API natively without having to fiddle with authentication
 ```shell

@@ -11,7 +11,7 @@ Goals
 Inputs
 * What is a blue/green deployment: https://martinfowler.com/bliki/BlueGreenDeployment.html
 * Use two `Deployment`s and a single `Service` with an appropriate label selector to route either `Deployment`.
-* Use the [paulbouwer/hello-kubernetes](https://hub.docker.com/r/paulbouwer/hello-kubernetes/) and the `MESSAGE` env to see which deployment is active
+* Use the [paulbouwer/hello-kubernetes](https://hub.docker.com/r/paulbouwer/hello-kubernetes/) and the `MESSAGE` env to see which deployment is active. Or alternatively the locally built `webapp-color:0.1`.
 
 Topics covered
 * Services
@@ -26,7 +26,7 @@ Goals
 Inputs
 * What is a canary deployment: https://martinfowler.com/bliki/CanaryRelease.html
 * Use two `Deployment`s and a single `Service` with an appropriate label selector to route certain ratios of traffic to either `Deployment`.
-* Use the [paulbouwer/hello-kubernetes](https://hub.docker.com/r/paulbouwer/hello-kubernetes/) image and the `MESSAGE` env to see which deployment is active
+* Use the [paulbouwer/hello-kubernetes](https://hub.docker.com/r/paulbouwer/hello-kubernetes/) image and the `MESSAGE` env to see which deployment is active. Or alternatively the locally built `webapp-color:0.1`.
 
 Topics covered
 * Services
@@ -44,6 +44,15 @@ Inputs
 Topics covered
 * A lot
 
+## Deploy a docker registry to the cluster and push
+
+Goals
+* Running docker registry on the Kubernetes cluster
+* Push a localy build docker image to the custom registry
+
+Inputs 
+* Use the registry:2 image
+
 ## Deploy .NET Microservices Sample Reference Application
 
 Goals
@@ -51,3 +60,5 @@ Goals
 
 https://github.com/dotnet-architecture/eShopOnContainers/
 https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/deploy/k8s/helm
+
+ 

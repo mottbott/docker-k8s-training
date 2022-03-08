@@ -10,6 +10,8 @@ Let's try the example which Docker Desktop suggests.
 ```
 docker run -d -p 8001:80 docker/getting-started
  ```
+Visit http://localhost:8001 to view the getting-started page.
+
  * 💡 The first port is the host port, the second the container port. 
  * 💡 You don't need to write the URL Docker Desktop already provides the link via GUI via *Container/Apps*. 
 

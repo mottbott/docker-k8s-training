@@ -1,4 +1,6 @@
 # Deployments
+[⬅️ Back to Kubernetes overview](kubernetes.md)
+
 Create a deployment with nginx
 ```shell
 kubectl create deployment --image=nginx --port 80 nginx 

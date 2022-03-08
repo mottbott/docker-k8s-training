@@ -1,9 +1,12 @@
 # Kubernetes Modules
+[⬅️ Back to overview](README.md)
+
 * [Basics](kubernetes-basic.md)
 * [Deployments](kubernetes-deployment.md)
 * [Namespace & Context](kubernetes-namespace-context.md)
 * [Stateful](kubernetes-stateful.md)
 * [Helm](kubernetes-helm.md)
+* [Exercises](kubernetes-exercises.md)
 
 # Topics to (maybe) put somewhere
 * `kubectl exec`

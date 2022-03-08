@@ -1,4 +1,6 @@
 # Docker Compose 
+[⬅️ Back to Docker overview](docker.md)
+
 * Docker Compose is a tool that was developed to help define and share **multi-container applications**. With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.
 * Docker compose itself is one binary file. If your are using Docker Desktop it should be installed via Settings => General and *Enables the docker-compose command to use Docker Compose V2*. For other purposes the installation manual can be found here: https://docs.docker.com/compose/install/
 

@@ -145,9 +145,8 @@ What is a Helm chart?
 A file that contains Kubernetes authentication certificates.
 A Helm documentation file.
 A package that you can use to install an application with Helm.
-
-
 A file that configures your cluster nodes.
+
 What is a Helm repository?
 A cache of Kubernetes documentation.
 A collection of Linux packages.

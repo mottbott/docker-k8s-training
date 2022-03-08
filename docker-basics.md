@@ -18,6 +18,8 @@ Let's start a Nginx container.
 ```
 docker run --name hello_world -p 8002:80 -d nginx
 ```
+Visit http://localhost:8002 to view the default nginx page. 
+
 💡 The option -d is short for --detach, which means you just run the container and then detach from it. Essentially, you the run container in the background. Default is the attach mode.
 
 List containers
@@ -68,6 +70,11 @@ Remove the container
 docker rm hello_world_neu
 ```
 💡Only stopped container can be removed.
+
+If you don't want to stop it before ...
+```  
+docker rm -f hello_world_neu
+```
 
 To delete all running and stopped containers on the host. 
 ```  
@@ -122,7 +129,7 @@ docker run -d --restart always -p 8005:80 --name my_server nginx
 docker container update --restart unless-stopped my_server
 docker container inspect my_server
 ```
-* 💡 With the option **inspect** you can get further information about your container, like the restart configuration. 
+* 💡 With the option **inspect** you can get further information about your container, like the restart configuration. Look for "RestartPolicy". 
 * 💡 We have three options: unless-stopped, always, on-failure
 * 💡 See https://docs.docker.com/config/containers/start-containers-automatically/
 

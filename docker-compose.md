@@ -18,11 +18,16 @@ Start the .NET Microservices Sample Reference Application
 git clone https://github.com/dotnet-architecture/eShopOnContainers
 cd eShopOnContainers/src
 docker-compose build
+# up  Create and start containers
 docker-compose up -d
-# Open in browser http://host.docker.internal:5104/catalog
-# Stop it
+
+# Stop services
+docker-compose stop
+# Stop and remove containers, networks
 docker-compose down
 ```
+Visit http://host.docker.internal:5104/catalog to view the catalog.
+
 * 💡 Docker Compose commands are executed where the **docker-compose.yml** is located. 
 * 💡 The first clone, build and application start can take some time. 
 
@@ -43,7 +48,7 @@ docker run -p 5000:80 voting-app
 * Next we can create a Redis database. Afterward we start the voting-app and link it to our container so that the webapp can access the redis database. 
 ``` 
 docker run --name=redis -d redis:alpine
-docker run -d --name=clickcounter --link redis:redis -p 5000:80 voting-app
+docker run -d --name=voting-app --link redis:redis -p 5000:80 voting-app
 ``` 
 💡 Using the link option is only for demonstration purpose. The --link flag is a deprecated legacy feature of Docker.
 

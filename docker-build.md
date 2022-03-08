@@ -34,11 +34,13 @@ Run the self build image
 ```
 docker run -d -p 8010:8080 webapp-color:0.1 
 ```
+Visit the website http://localhost:8010
 
 Set environment variables with the option **--env** or **-e** 
 ```
 docker run -d --name blue-app -e APP_COLOR='blue' -p 38282:8080 webapp-color:0.1
 ```
+Visit the website http://localhost:38282
 * 💡 Variables have the following format: KEY=value
 * 💡 Inside the container you can also use the echo command to print a shell variable. **echo $KEY**
 * 💡 The option **-e** can be used multiple times.

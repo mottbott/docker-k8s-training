@@ -137,9 +137,9 @@ docker run -it ubuntu
 
 Run a command in an existing container. 
 ``` 
-docker exec -it hello_world_neu cat /etc/*release*
+docker exec -it my_server cat /etc/*release*
 # terminal into the docker container
-docker exec -it hello_world_neu bash
+docker exec -it my_server bash
 ``` 
 ## Exercise
 * 📝 The Docker Desktop provides the CLI option. Can you find it?

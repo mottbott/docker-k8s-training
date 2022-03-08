@@ -20,7 +20,7 @@ Build a docker image without a Tag
 docker build .
 ```
 * 💡 If you are using **build .** without any further options the image will only have an ID. 
-* 💡 The example app cen be found here: https://github.com/kodekloudhub/webapp-color
+* 💡 The example app can be found here: https://github.com/kodekloudhub/webapp-color
 
 Add a tag and a version
 ```
@@ -37,7 +37,7 @@ docker run -d -p 8010:8080 webapp-color:0.1
 
 Set environment variables with the option **--env** or **-e** 
 ```
-docker run -d --name blue-app -e APP_COLOR='blue' -p 38282:8080 kodekloud/simple-webapp
+docker run -d --name blue-app -e APP_COLOR='blue' -p 38282:8080 webapp-color:0.1
 ```
 * 💡 Variables have the following format: KEY=value
 * 💡 Inside the container you can also use the echo command to print a shell variable. **echo $KEY**

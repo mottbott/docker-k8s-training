@@ -66,7 +66,7 @@ docker run ubuntu sleep 5
 Build your own Dockerfile with default 5 seconds sleep. 
 * Dockerfile: 
 * FROM ubuntu 
-* CMD sleep 1
+* CMD sleep 5
 ```
 docker build . -t ubuntu_sleeper
 docker run ubuntu_sleeper

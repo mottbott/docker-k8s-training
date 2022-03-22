@@ -20,7 +20,7 @@ Build a docker image without a Tag
 docker build .
 ```
 * 💡 If you are using **build .** without any further options the image will only have an ID. 
-* 💡 The example app can be found here: https://github.com/kodekloudhub/webapp-color
+* 💡 The example app can be found in the folder **simple-docker-app**.
 
 Add a tag and a version
 ```

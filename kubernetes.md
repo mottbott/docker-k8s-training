@@ -2,8 +2,10 @@
 [⬅️ Back to overview](README.md)
 
 * [Basics](kubernetes-basic.md)
+* [API](kubernetes-api.md)
 * [Deployments](kubernetes-deployment.md)
 * [Namespace & Context](kubernetes-namespace-context.md)
+* [ConfigMap and Secret](kubernetes-config-map-secret.md)
 * [Stateful](kubernetes-stateful.md)
 * [Helm](kubernetes-helm.md)
 * [Exercises](kubernetes-exercises.md)

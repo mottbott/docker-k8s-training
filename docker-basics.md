@@ -34,6 +34,11 @@ List all containers including exited container.
 ```
 docker ps -a
 ```
+Want to automatically remove the container when it exits. Use the **rm** flag.
+```
+docker run --rm -p 8003:80 -d nginx
+```
+
 💡 Possible States of a Docker Container: Running, Restarting, Exited, Paused and Dead.
 Show stats: The docker stats command returns a live data stream for running containers. 
 ```

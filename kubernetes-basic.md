@@ -29,7 +29,7 @@ See the whole resource of the pod in YAML format
 ```shell
 kubectl get pod nginx -o yaml
 ```
-📝 Does the pod have any label set? Which?
+📝 Does the pod have any label set? Which? What are labels about anyway again?
 
 Expose the pod to be able to access it locally
 ```shell

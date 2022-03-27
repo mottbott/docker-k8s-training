@@ -50,8 +50,8 @@ docker run -p 5000:80 voting-app
 docker run --name=redis -d redis:alpine
 docker run -d --name=voting-app --link redis:redis -p 5000:80 voting-app
 ``` 
-💡 Using the link option is only for demonstration purpose. The --link flag is a deprecated legacy feature of Docker.
-💡 The second parameter "--link redis:**redis**" points to the redis host. https://github.com/dockersamples/example-voting-app/blob/master/vote/app.py 
+* 💡 Using the link option is only for demonstration purpose. The --link flag is a deprecated legacy feature of Docker.
+* 💡 The second parameter "--link redis:**redis**" points to the redis host. https://github.com/dockersamples/example-voting-app/blob/master/vote/app.py 
 
 ## Exercise
 * 📝 Explore the docker-compose.yml and figure out how **services**, **images** and **port mappings** are utilized. https://github.com/kassambara/wordpress-docker-compose/blob/master/docker-compose.yml

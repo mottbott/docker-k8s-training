@@ -30,6 +30,7 @@ Visit http://host.docker.internal:5104/catalog to view the catalog.
 
 * 💡 Docker Compose commands are executed where the **docker-compose.yml** is located. 
 * 💡 The first clone, build and application start can take **a few minutes**. If you are interested in that example, please try it **after** the course.
+* 💡 The docker-compose down command helps to stop and remove containers, networks, images, and volumes.
 
 # Let's do it manually
 We start with an example to see where Docker Compose supports us. The example is a simple voting web app. The results are stored in a Redis in-memory data structure store.

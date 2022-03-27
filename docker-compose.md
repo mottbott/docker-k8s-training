@@ -37,7 +37,7 @@ We start with an example to see where Docker Compose supports us. The example is
 ```  
 # Clone the demo application
 git clone https://github.com/dockersamples/example-voting-app.git
-cd example-voting-app/votes
+cd example-voting-app/vote
 
 # Build the and start the webapp
 docker build . -t voting-app

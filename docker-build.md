@@ -44,6 +44,7 @@ Visit the website http://localhost:38282
 * 💡 Variables have the following format: KEY=value
 * 💡 Inside the container you can also use the echo command to print a shell variable. **echo $KEY**
 * 💡 The option **-e** can be used multiple times.
+* 💡 Not all colours are available. Use **green,pink or blue**.
 
 ## Exercise
 * 📝 Build your own image based on the given example with following image name and tag *my-webapp:1.0*. The source code can be found here https://github.com/kodekloudhub/webapp-color

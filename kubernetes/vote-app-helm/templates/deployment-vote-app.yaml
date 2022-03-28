@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "vote-app-helm.fullname" . }}
+  labels:
+    {{- include "vote-app-helm.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.vote.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "vote-app-helm.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "vote-app-helm.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: vote
+          image: "{{ .Values.vote.image.repository }}:{{ .Values.vote.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.vote.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "vote-app-helm.fullname" . }}
+  labels:
+    {{- include "vote-app-helm.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.vote.service.type }}
+  ports:
+    - port: {{ .Values.vote.service.port }}
+      targetPort: 80
+      protocol: TCP
+      name: http
+      {{- if contains "NodePort" .Values.vote.service.type }}
+      nodePort: {{ .Values.vote.service.port }}
+      {{- end }}
+  selector:
+    {{- include "vote-app-helm.selectorLabels" . | nindent 4 }}

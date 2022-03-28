@@ -85,19 +85,24 @@ Create helm Chart of our own
 helm create learn-chart
 ```
 
-Add Stuff
+📝 Create a Helm chart with the voting app (`eesprit/voting-app-vote`) and redis (`redis:alpine`) as `Deployment`s as well as a `Service` for each. 
+Which kind of `Service` allows you to use the voting app externally?
+Provide at least the number of replicas and the images for each deployment as parameters.
+
+
+See official repo (https://github.com/dockersamples/example-voting-app/tree/master/k8s-specifications) for some Kubernetes manifests or `kubernetes/vote-app-helm` for an example solution.
+
+Verify the chart does not break any rules
 ```shell
 helm lint learn-chart
 ```
 
-🚧 TODO: Create Helm chart for voting app example and exercise
+💡 Helm also supports dependencies which allow you to reuse existing charts from others. See https://helm.sh/docs/helm/helm_dependency/
 
-Explain helm dependencies
-Review the previously used helm chart of kube-prometheus-stack
+📝 Modify the Helm chart from above to use redis from a dependant chart. E.g. https://artifacthub.io/packages/helm/bitnami/redis
 
-Hint at https://artifacthub.io/ 
-This is where a lot of charts and also documentation can be found
-There are a lot of different charts, obviously. 
+https://artifacthub.io/ is where a lot of charts and also documentation can be found. 
+A lot of different charts already exist, obviously. 
 
 💡 For good charts apart from official ones (if available) are the Bitnami ones: https://artifacthub.io/packages/search?kind=0&org=bitnami
 

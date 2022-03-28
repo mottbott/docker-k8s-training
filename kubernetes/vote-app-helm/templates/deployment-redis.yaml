@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "vote-app-helm.fullname" . }}-redis
+  labels:
+    {{- include "vote-app-helm.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.redis.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "vote-app-helm.selectorLabels" . | nindent 6 }}-redis
+  template:
+    metadata:
+      labels:
+        {{- include "vote-app-helm.selectorLabels" . | nindent 8 }}-redis
+    spec:
+      containers:
+        - name: vote
+          image: "{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.redis.image.pullPolicy }}
+          ports:
+            - name: redis
+              containerPort: 6379
+              protocol: TCP
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    {{- include "vote-app-helm.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.redis.service.type }}
+  ports:
+    - port: {{ .Values.redis.service.port }}
+      targetPort: redis
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "vote-app-helm.selectorLabels" . | nindent 4 }}-redis

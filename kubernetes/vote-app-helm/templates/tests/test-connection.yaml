@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "vote-app-helm.fullname" . }}-test-connection"
+  labels:
+    {{- include "vote-app-helm.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "vote-app-helm.fullname" . }}:{{ .Values.vote.service.port }}']
+  restartPolicy: Never

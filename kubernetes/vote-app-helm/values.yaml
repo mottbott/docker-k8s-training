@@ -1,0 +1,25 @@
+# Default values for vote-app-helm.
+
+vote:
+  image:
+    repository: eesprit/voting-app-vote
+    pullPolicy: IfNotPresent
+    tag: latest
+
+  service:
+    type: NodePort
+    port: 30088
+
+  replicaCount: 2
+
+redis:
+  image:
+    repository: redis
+    pullPolicy: IfNotPresent
+    tag: alpine
+
+  service:
+    type: ClusterIP
+    port: 6379
+
+  replicaCount: 1

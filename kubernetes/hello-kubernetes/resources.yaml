@@ -44,7 +44,7 @@ spec:
           - name: CONTAINER_IMAGE
             value: "paulbouwer/hello-kubernetes:1.10"
           - name: MESSAGE
-            value: "Message from deployment"
+            value: "👋 Hello from Deployment"
 
 ---
 

@@ -57,6 +57,11 @@ Check current pods
 kubectl get pods
 ```
 
+## Exercise
+* Create a new deployment with Nginx version 1.20.2 with two replicas
+* Expose a node port service with port 30081
+* Optional: Change the Nginx version to 1.21.6. You can use the following help command to get further information about changing the image. kubectl set image --help Hint: Container name is Image name. In our case nginx. 
+
 ## Different `kubectl` variants at work
 ```shell
 kubectl run nginx --image=nginx --dry-run=client -o yaml

@@ -85,7 +85,7 @@ docker rm -f hello_world_neu
 
 To delete all running and stopped containers on the host. 
 ```  
-docker container rm -f $(docker container ls -aq)
+docker rm -f $(docker ps -aq)
 ```  
 ## Exercise
 * 📝Start three different Nginx containers. Did you have any challenges and how did you solve them?

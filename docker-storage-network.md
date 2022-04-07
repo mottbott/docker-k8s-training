@@ -11,7 +11,7 @@ cd www
 echo "hello world" > index.html
 docker run -d -p 8003:80 -v /tmp/www:/usr/share/nginx/html nginx:latest
 
-# Windows: Crete the **index.html** in C:\Temp. 
+# For Windows Users without WSL: Crete the index.html in C:\Temp. 
 # Use a slash instead of a backslash to determine the host system path. 
 docker run -d -p 8003:80 -v C:/Temp/:/usr/share/nginx/html nginx:latest
 ```

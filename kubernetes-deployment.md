@@ -20,6 +20,12 @@ ReplicaSet is "Controlled By" the Deployment we've just created
 kubectl get deployment
 kubectl describe deployment nginx
 ```
+
+Labels are properties attached to each object. Selectors filter these items.
+```shell
+kubectl get pods --selector app=nginx
+```
+
 Expose the deployment using a `Service` of type `NodePort`
 ```shell
 kubectl create service nodeport nginx --node-port=30080 --tcp 80:80

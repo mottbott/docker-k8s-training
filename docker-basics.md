@@ -22,8 +22,8 @@ docker run --name hello_world --publish 8002:80 --detach nginx
 ```
 Visit http://localhost:8002 to view the default nginx page. 
 
-💡 The option -d is short for --detach, which means you just run the container and then detach from it. Essentially, you the run container in the background. Default is the attach mode.
-💡 Instenad of using **--detach** you can use the short version **-d** and **-p** instead of **--publish**.
+* 💡 The option -d is short for --detach, which means you just run the container and then detach from it. Essentially, you the run container in the background. Default is the attach mode.
+* 💡 Instenad of using **--detach** you can use the short version **-d** and **-p** instead of **--publish**.
 
 List containers
 ```

@@ -51,6 +51,11 @@ See the new pods? What happens if we delete an existing pod?
 kubectl delete pod -l "app=nginx"
 ```
 
+To see some more results in the rollout handling afterwards, we are changing the image to an older version.
+```shell
+kubectl set image deployment nginx nginx=nginx:1.20.2
+```
+
 Rollout handling
 ```shell
 kubectl rollout status deployment/nginx
@@ -58,15 +63,16 @@ kubectl rollout history deployment/nginx
 kubectl rollout undo deployment/nginx
 ```
 
+
 Check current pods
 ```shell
 kubectl get pods
 ```
 
 ## Exercise
-* Create a new deployment with Nginx version 1.20.2 with two replicas
+* Create a new deployment with Nginx and two replicas. Hint: It is possible in one or multiples commands.
 * Expose a node port service with port 30081
-* Optional: Change the Nginx version to 1.21.6. You can use the following help command to get further information about changing the image. kubectl set image --help Hint: Container name is Image name. In our case nginx. 
+
 
 ## Different `kubectl` variants at work
 ```shell

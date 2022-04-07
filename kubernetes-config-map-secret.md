@@ -53,6 +53,8 @@ kubectl exec -it hello-kubernetes-59bb8ffc5f-gvlbq -- env
 kubectl exec -it hello-kubernetes-59bb8ffc5f-gvlbq -- env | grep MESSAGE
 ```
 
+💡 There is also a prepared version with a `ConfigMap` under `kubernetes/hello-kubernetes/resource-configmap.yaml`. It provides a service under http://localhost:31323
+
 📝 What can we do?
 
 If we want to "protect" the values of externalized configuration, we can use `Secrets`
@@ -75,6 +77,7 @@ Let's use it instead of the `ConfigMap`
 
 Let's check the result under http://localhost:31313
 
+💡 There is also a prepared version with a `Secret` under `kubernetes/hello-kubernetes/resource-secret.yaml`. It provides a service under http://localhost:31333
 💡 In the [Helm module](kubernetes-helm.md), there is a way described on how to read contents of a secret
 
 📝 Can you put a whole file into a `ConfigMap` or `Secret`?

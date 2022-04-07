@@ -14,6 +14,7 @@ docker run -d -p 8003:80 -v /tmp/www:/usr/share/nginx/html nginx:latest
 ## Exercise
 * 📝 Create your own **index.html**  and run it a volume mount in a Nginx container.
 * 📝 Open the website in your browser and modify the **index.html**. Refresh afterwards to see the changes.
+* Visit http://localhost:8003 to view your results.
   
 Create a managed volume and inspect it
 ```

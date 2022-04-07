@@ -8,7 +8,7 @@ docker run hello-world
 
 Let's try the example which Docker Desktop suggests.
 ```
-docker run -d -p 8001:80 docker/getting-started
+docker run --detach --publish 8001:80 docker/getting-started
  ```
 Visit http://localhost:8001 to view the getting-started page.
 
@@ -18,11 +18,12 @@ Visit http://localhost:8001 to view the getting-started page.
 # Run a Nginx web server and discover it
 Let's start a Nginx container. 
 ```
-docker run --name hello_world -p 8002:80 -d nginx
+docker run --name hello_world --publish 8002:80 --detach nginx
 ```
 Visit http://localhost:8002 to view the default nginx page. 
 
 💡 The option -d is short for --detach, which means you just run the container and then detach from it. Essentially, you the run container in the background. Default is the attach mode.
+💡 Instenad of using **--detach** you can use the short version **-d** and **-p** instead of **--publish**.
 
 List containers
 ```

@@ -33,9 +33,9 @@ Delete the volume
 
 Create a nginx container with managed volume via  bind mount or volume mount 
 ```
-docker run -d  --name devtest --mount source=myvol2,target=/usr/share/nginx/html nginx:latest
+docker run -d  -p 8003:80 --name devtest --mount source=myvol2,target=/usr/share/nginx/html nginx:latest
 # Same with volume mount
-docker run -d --name devtest -v myvol2:/usr/share/nginx/html nginx:latest
+docker run -d -p 8003:80 --name devtest -v myvol2:/usr/share/nginx/html nginx:latest
 # Check the created volume
 docker volume ls | grep myvol2
 ```

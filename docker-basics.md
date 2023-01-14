@@ -147,6 +147,8 @@ Start a container and execute a command.
 ``` 
 docker run ubuntu cat /etc/*release*
 docker run -it ubuntu
+##  Starting a Shell in an Alpine Container
+docker run -it alpine /bin/sh
 ``` 
 💡 The option -it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
 

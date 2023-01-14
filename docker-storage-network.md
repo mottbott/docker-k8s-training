@@ -3,12 +3,17 @@
 
 There are volume mount and bind mounts. The main difference a bind mount has from a volume is that since it can exist anywhere on the host filesystem, processes outside of Docker can also modify it. By default there is no persistence in your Docker container. 
 
-In the example we will create our own **index.html** and mount into the container. 
+In the example we will create our own **index.html** and use a bind mount into the container. 
 ```
 cd /tmp
 mkdir www
 cd www
 echo "hello world" > index.html
+
+#New way
+docker run -d -p 8003:80  --mount type=bind,source=/tmp/www,target=/usr/share/nginx/html nginx:latest
+
+#Old way
 docker run -d -p 8003:80 -v /tmp/www:/usr/share/nginx/html nginx:latest
 
 # For Windows Users without WSL: Crete the index.html in C:\Temp. 
@@ -31,10 +36,11 @@ Delete the volume
  docker volume rm my-vol 
  ```
 
-Create a nginx container with managed volume via  bind mount or volume mount 
+Create a nginx container with managed volume via   volume mount 
 ```
+# new way
 docker run -d  -p 8003:80 --name devtest --mount source=myvol2,target=/usr/share/nginx/html nginx:latest
-# Same with volume mount
+# Old way
 docker run -d -p 8003:80 --name devtest -v myvol2:/usr/share/nginx/html nginx:latest
 # Check the created volume
 docker volume ls | grep myvol2
